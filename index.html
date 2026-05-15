@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>流式渲染演示 (Streaming Rendering Demo)</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 页面头部 -->
+        <header class="header">
+            <h1>🌊 流式渲染演示</h1>
+            <p class="subtitle">Streaming Rendering Demo — 模拟 AI 助手逐字回复效果</p>
+        </header>
+
+        <!-- 主要内容区 -->
+        <main class="main-content">
+            <!-- 演示卡片 1：逐字流式输出 -->
+            <section class="demo-card">
+                <div class="card-header">
+                    <h2>💬 演示 1：聊天助手流式回复</h2>
+                    <p>模拟 AI 流式输出，每个字符逐个显示</p>
+                </div>
+                <div class="chat-container" id="chatContainer1">
+                    <div class="message assistant-message" id="assistantMessage1">
+                        <div class="avatar">🤖</div>
+                        <div class="message-content" id="messageContent1">
+                            <span class="typing-cursor">|</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="controls">
+                    <button class="btn btn-primary" id="startDemo1">开始流式渲染</button>
+                    <button class="btn btn-secondary" id="clearDemo1">清空</button>
+                </div>
+                <div class="status-bar">
+                    <span class="status-label">状态：</span>
+                    <span class="status-value" id="status1">等待开始...</span>
+                </div>
+            </section>
+
+            <!-- 演示卡片 2：模拟 SSE 实时数据流 -->
+            <section class="demo-card">
+                <div class="card-header">
+                    <h2>📡 演示 2：SSE 服务器推送流式数据</h2>
+                    <p>通过 EventSource API 接收后端 SSE 实时推送</p>
+                </div>
+                <div class="sse-container">
+                    <div class="sse-output" id="sseOutput">
+                        <div class="output-line placeholder">等待连接...</div>
+                    </div>
+                </div>
+                <div class="controls">
+                    <button class="btn btn-primary" id="connectSSE">连接 SSE 服务器</button>
+                    <button class="btn btn-danger" id="disconnectSSE">断开连接</button>
+                    <button class="btn btn-secondary" id="clearSSE">清空</button>
+                </div>
+                <div class="status-bar">
+                    <span class="status-label">连接状态：</span>
+                    <span class="status-value" id="sseStatus">未连接</span>
+                </div>
+            </section>
+
+            <!-- 演示卡片 3：代码块流式高亮渲染 -->
+            <section class="demo-card">
+                <div class="card-header">
+                    <h2>💻 演示 3：代码块流式高亮渲染</h2>
+                    <p>模拟代码片段逐行流式显示与高亮</p>
+                </div>
+                <div class="code-container">
+                    <div class="code-header">
+                        <span class="code-lang">JavaScript</span>
+                        <span class="code-filename">streaming-demo.js</span>
+                    </div>
+                    <pre class="code-block"><code id="codeContent" class="language-javascript"></code><span class="typing-cursor" id="codeCursor">|</span></pre>
+                </div>
+                <div class="controls">
+                    <button class="btn btn-primary" id="startCodeDemo">开始渲染代码</button>
+                    <button class="btn btn-secondary" id="clearCodeDemo">清空</button>
+                </div>
+            </section>
+
+            <!-- 演示卡片 4：Markdown 富文本流式渲染 -->
+            <section class="demo-card">
+                <div class="card-header">
+                    <h2>📝 演示 4：Markdown 富文本流式渲染</h2>
+                    <p>支持标题、列表、加粗、代码块等 Markdown 语法的流式渲染</p>
+                </div>
+                <div class="markdown-container" id="markdownContainer">
+                    <div class="markdown-output" id="markdownOutput">
+                        <span class="typing-cursor" id="markdownCursor">|</span>
+                    </div>
+                </div>
+                <div class="controls">
+                    <button class="btn btn-primary" id="startMarkdownDemo">开始 Markdown 流式渲染</button>
+                    <button class="btn btn-secondary" id="clearMarkdownDemo">清空</button>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>由 <a href="https://with.woa.com/" style="color: #8A2BE2;" target="_blank">With</a> 通过自然语言生成</p>
+        </footer>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
